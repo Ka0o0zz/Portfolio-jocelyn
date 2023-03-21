@@ -13,7 +13,7 @@ export default function Contact() {
       <main className="Portfolio">
         <Header />
 
-        <div className="Portfolio-container-categories">
+        <div className="Contact">
           <h4 style={{ textAlign: "center" }}>Contact</h4>
           <div className="Contact">
             <form>

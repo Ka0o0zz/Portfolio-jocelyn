@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Source+Serif+Pro:ital,wght@0,200;0,400;1,300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;1,600&display=swap');
 
 * {
   box-sizing: border-box;
@@ -10,8 +10,9 @@ html,
 body {
   max-width: 100vw;
   overflow-x: hidden;
-  font-family: 'Source Serif Pro', serif;
-  background-color: #f7dcee;
+  font-family: 'Montserrat', sans-serif;
+  //background-color: #f7dcee;
+  background-color: #fff;
 }
 
 a {
@@ -38,7 +39,7 @@ a {
     }
 
     h1 {
-      color: #fff;
+      color: black;
       width: max-content;
       font-size: 5rem;
       position: absolute;
@@ -46,7 +47,7 @@ a {
       left: -45px;
       text-align: center;
 
-      font-weight: 400;
+      font-weight: 700;
 
     }
 
@@ -69,7 +70,10 @@ a {
 
 header {
   display: flex;
-  width: 100%;
+  width: 20%;
+  height: 100vh;
+  flex-direction: column;
+  align-items: center;
   justify-content: space-between;
   padding: 40px 10px;
 
@@ -83,11 +87,12 @@ header {
       display: flex;
       justify-content: center;
       align-items: center;
+      flex-direction: column;
 
       li {
         list-style: none;
-        margin: 0 8px;
-        font-size: 1.2rem;
+        margin: 10px 0;
+        font-size: 1rem;
 
         a {
           color: black;
@@ -95,17 +100,25 @@ header {
       }
     }
   }
+
+  .rights {
+    display: grid;
+    place-items: center;
+  }
 }
 
 .Portfolio {
+  overflow: hidden;
   min-height: 100vh;
+  display: flex;
 
-  max-width: 1120px;
+  max-width: 100%;
   margin: auto;
 
   .Portfolio-container-categories {
-    margin-top: 35px;
-    padding: 0 10px;
+    padding: 0 0px 0 10px;
+
+    width: 100%;
 
     h4 {
       font-size: 1.4rem;
@@ -131,29 +144,76 @@ header {
         padding: 10px;
         border-radius: 5px;
       }
+    }
+  }
+}
 
+.container-gallery {
+  width: 100%;
+  height: 100%;
+
+  display: grid;
+  place-items: center;
+}
+
+.gallery {
+  display: flex;
+  width: 100%;
+  height: 100%;
+
+  .gallery-item {
+    position: relative;
+    width: 0px;
+    height: 100%;
+    flex-grow: 1;
+    transition: .5s ease;
+
+    a,
+    img {
+      width: 100%;
+      height: 100%;
+    }
+
+    .gallery-item-text {
+      position: absolute;
+      bottom: 40px;
+      width: 100%;
+      text-align: center;
+
+      p {
+        color: #cacaca;
+        font-size: 1.8rem;
+      }
+    }
+
+
+
+    &:hover {
+
+      a,
       img {
-        object-fit: cover;
         width: 100%;
         height: 100%;
-        border-radius: 5px;
       }
 
-      &.one {
-        height: 550px;
-      }
+      cursor: crosshair;
+      width: 236px;
+      filter: contrast(110%);
+    }
+  }
 
-      &.two {
-        height: 300px;
-      }
+  img {
+    width: 0px;
+    height: 100%;
+    flex-grow: 1;
+    object-fit: cover;
+    transition: .5s ease;
+    filter: brightness(.75);
 
-      &.three {
-        height: 550px;
-      }
-
-      &.four {
-        height: 300px;
-      }
+    &:hover {
+      cursor: crosshair;
+      width: 238px;
+      filter: contrast(120%);
     }
   }
 }
@@ -161,6 +221,7 @@ header {
 .Contact {
   display: grid;
   place-content: center;
+  width: 100%;
 
   form {
     display: flex;
@@ -173,13 +234,13 @@ header {
 
     label {
       width: 100%;
-      font-family: 'Source Serif Pro', serif;
+      font-family: 'Montserrat', sans-serif;
       margin-top: 20px;
 
       input,
       textarea {
         width: 100%;
-        font-family: 'Source Serif Pro', serif;
+        font-family: 'Montserrat', sans-serif;
         background: none;
         margin-top: 8px;
 
@@ -195,6 +256,57 @@ header {
       border: none;
       margin-top: 20px;
       cursor: pointer;
+    }
+  }
+}
+
+.photo-detail-container {
+  position: relative;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  height: 100vh;
+
+  .header-photo-detail {
+    position: absolute;
+    padding: 40px;
+    top: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+
+    h3 {
+      font-size: 1.5rem;
+      font-weight: 400;
+      color: #000;
+    }
+  }
+
+  .photo-detail {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 50px;
+    height: 95vh;
+    width: 100%;
+
+    button {
+      height: fit-content;
+      background: none;
+      border: none;
+      cursor: pointer;
+    }
+
+    .photo-detail-img {
+      height: 100%;
+      display: flex;
+      justify-content: center;
+      img {
+        height: 90%;
+        max-width: 95%;
+        
+        align-self: flex-end;
+      }
     }
   }
 }
