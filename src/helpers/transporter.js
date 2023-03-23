@@ -1,13 +1,14 @@
 import nodemailer from "nodemailer";
 import hbs from "nodemailer-handlebars";
+import path from "path";
 
 let options = {
   viewEngine: {
     extname: ".hbs",
-    layoutsDir: "./../../views/",
+    layoutsDir: path.resolve(__dirname, "views/"),
     defaultLayout: "",
   },
-  viewPath: "./../../views/",
+  viewPath: path.resolve(__dirname, "views/"),
   extName: ".hbs",
 };
 
