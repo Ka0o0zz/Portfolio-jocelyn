@@ -12,7 +12,20 @@ import path from "path";
 //   extName: ".hbs",
 // };
 
-// //Use template configuration
+let transporter = nodemailer.createTransport({
+  host: "smtp-mail.outlook.com",
+  port: 587,
+  secure: false,
+  auth: {
+    user: "nehasada@hotmail.com",
+    pass: "5205439",
+  },
+  tls: {
+    ciphers: "SSLv3",
+  },
+});
+
+//Use template configuration
 // transporter.use("compile", hbs(options));
 
 // function sendMail(options) {
@@ -32,28 +45,4 @@ import path from "path";
 //   });
 // }
 
-// export default transporter;
-
-let transporter = nodemailer.createTransport({
-  host: "smtp.live.com",
-  port: 587,
-  secure: false,
-  auth: {
-    user: "nehasada@hotmail.com",
-    pass: "5205439",
-  },
-});
-
-export const sendEmail = async (to, subject, text) => {
-  try {
-    await transporter.sendMail({
-      from: "nehasada@hotmail.com",
-      to: to,
-      subject: subject,
-      text: text,
-    });
-    console.log("Correo electrónico enviado con éxito");
-  } catch (error) {
-    console.error("Error al enviar el correo electrónico:", error);
-  }
-};
+export default transporter;
