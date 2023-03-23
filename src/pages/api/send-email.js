@@ -9,7 +9,7 @@ export default function handler(req, res) {
 
     try {
       const mailOptions = {
-        from: "info@Oncater.com",
+        from: "nehasada@hotmail.com",
         to: ["davidbate5025@gmail.com", "jocelynnvargas1019@gmail.com"],
         subject: "New Message From Portfolio | Joselin",
         template: "email",
