@@ -7,9 +7,9 @@ import { useCallback, useEffect, useState } from "react";
 import { LazyLoadImage } from "react-lazy-load-image-component";
 
 const libraryNumPhotos = {
-  persons: 7,
+  persons: 8,
   objects: 6,
-  food: 1,
+  food: 2,
   animals: 2,
 };
 
