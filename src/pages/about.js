@@ -1,7 +1,17 @@
+/* eslint-disable react/no-unescaped-entities */
 import { Header } from "@/components/Header";
+import useAppContext from "@/useContext";
 import Head from "next/head";
+import { useEffect } from "react";
 
 export default function About() {
+  const { animation, setAnimation } = useAppContext();
+
+  useEffect(() => {
+    if (!animation) {
+      setAnimation(true);
+    }
+  }, [animation, setAnimation]);
   return (
     <>
       <Head>
@@ -17,31 +27,31 @@ export default function About() {
           <h2>About me</h2>
 
           <p>
-            ¡Hola! Soy Joselin Vargas, una fotógrafa especializada en fotos de
-            estudio y productos de comida. Me apasiona capturar momentos y
-            emociones a través de mi lente y transformarlos en imágenes
-            duraderas que puedan ser disfrutadas durante años.
+            Hi! I'm Joselin Vargas, a passionate photographer with experience in
+            capturing unique moments and creating stunning images. My
+            specialties are portraits, product, object, food, animal and banner
+            photos in studio.
           </p>
           <p>
-            Mi enfoque principal es retratar a mis clientes de la manera más
-            auténtica y natural posible. Me esfuerzo por crear un ambiente
-            relajado y cómodo para que se sientan completamente a gusto durante
-            la sesión de fotos. Mi objetivo es que se diviertan y se sientan lo
-            más cómodos posible, para que así podamos capturar su verdadera
-            esencia.
+            From a young age, I have had a keen interest in photography, and
+            over the years I have developed my ability to capture special
+            moments and make each image tell a story. I love working with people
+            and creating portraits that showcase their unique personality and
+            character. I also enjoy capturing the beauty of objects, products
+            and food, finding the best light and composition to highlight their
+            features.
           </p>
           <p>
-            Además de mi habilidad para capturar momentos y emociones, también
-            tengo experiencia en fotografiar productos de comida y crear banners
-            publicitarios. Disfruto experimentar con diferentes técnicas y
-            estilos para crear imágenes que destaquen y reflejen la personalidad
-            de cada producto.
+            Currently, I am studying at EACC, and will soon be joining IvyTech
+            to further hone my skills and knowledge in photography. I am always
+            looking to learn and grow as a photographer, to offer my clients the
+            best possible service.
           </p>
           <p>
-            Si estás buscando un fotógrafo de estudio que pueda capturar la
-            esencia de tu marca o producto, ¡no dudes en contactarme! Estoy
-            emocionada de trabajar contigo para crear imágenes únicas y hermosas
-            que te ayuden a destacarte en el mercado.
+            In my portfolio you will find some of my most recent work and
+            examples of my style. I would love the opportunity to work with you
+            and create images that make you feel emotions and leave you with a
+            lasting memory, thanks for visiting my site!
           </p>
         </div>
       </main>

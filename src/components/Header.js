@@ -1,14 +1,16 @@
+import useAppContext from "@/useContext";
 import Link from "next/link";
 
 export const Header = () => {
   const date = new Date().getFullYear();
+  const { animation } = useAppContext();
   return (
     <header>
-      <h3>Joselin Vargas</h3>
-      <nav>
+      <Link href="/"><h3 className={!animation ? "animation" : ""}>Joselin Vargas</h3></Link>
+      <nav className={!animation ? "animation" : ""}>
         <ul>
           <li>
-            <Link href="/portfolio">Portfolio</Link>
+            <Link href="/">Portfolio</Link>
           </li>
           <li>
             <Link href="/about">About</Link>
@@ -18,7 +20,7 @@ export const Header = () => {
           </li>
         </ul>
       </nav>
-      <div className="rights">
+      <div className={`rights ${!animation ? "animation" : ""}`}>
         <p>©{date} Joselin Vargas.</p>
         <p>All rights reserved.</p>
       </div>

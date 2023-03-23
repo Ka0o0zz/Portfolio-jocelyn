@@ -1,4 +1,5 @@
 import { persons, objects, food, animals } from "@/images";
+import useAppContext from "@/useContext";
 import Head from "next/head";
 import Link from "next/link";
 import { useRouter } from "next/router";
@@ -25,8 +26,13 @@ export default function DetailCategory() {
   const [imageUrl, setImageUrl] = useState([]);
   const router = useRouter();
   const { category } = router.query;
+  const { animation, setAnimation } = useAppContext();
 
-  console.log({ category });
+  useEffect(() => {
+    if (!animation) {
+      setAnimation(true);
+    }
+  }, [animation, setAnimation]);
 
   useEffect(() => {
     setImageUrl(libraryCategory[category]);
@@ -94,11 +100,11 @@ export default function DetailCategory() {
       </Head>
       <div className="photo-detail-container">
         <div className="header-photo-detail">
-          <Link href={"/portfolio"}>
+          <Link href={"/"}>
             <h3>Joselin Vargas</h3>
           </Link>
 
-          <Link href={"/portfolio"}>
+          <Link href={"/"}>
             <svg
               xmlns="http://www.w3.org/2000/svg"
               className="icon icon-tabler icon-tabler-x"
