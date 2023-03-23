@@ -16,10 +16,10 @@ export default function handler(req, res) {
       };
 
       transporter.sendMail(mailOptions, function (err, data) {
+        console.log({ data });
         if (err) {
           console.log(err);
         } else {
-          console.log("se envio");
         }
       });
       res.status(200).json({
