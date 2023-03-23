@@ -5,10 +5,10 @@ import path from "path";
 let options = {
   viewEngine: {
     extname: ".hbs",
-    layoutsDir: path.resolve(__dirname, "views/"),
+    layoutsDir: path.join(__dirname, "../views/"),
     defaultLayout: "",
   },
-  viewPath: path.resolve(__dirname, "views/"),
+  viewPath: path.join(__dirname, "../views/"),
   extName: ".hbs",
 };
 
