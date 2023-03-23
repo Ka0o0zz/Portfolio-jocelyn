@@ -10,7 +10,9 @@ export const Header = () => {
           <li>
             <Link href="/portfolio">Portfolio</Link>
           </li>
-          <li>About</li>
+          <li>
+            <Link href="/about">About</Link>
+          </li>
           <li>
             <Link href="/contact">Contact</Link>
           </li>
@@ -20,6 +22,12 @@ export const Header = () => {
         <p>©{date} Joselin Vargas.</p>
         <p>All rights reserved.</p>
       </div>
+
+      <button>
+        <span />
+        <span />
+        <span />
+      </button>
     </header>
   );
 };

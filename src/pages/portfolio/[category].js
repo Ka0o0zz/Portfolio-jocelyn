@@ -12,33 +12,47 @@ const libraryNumPhotos = {
   animals: 2,
 };
 
-export default function DetailCategory({ imageUrl, url }) {
+const libraryCategory = {
+  persons: persons,
+  objects: objects,
+  food: food,
+  animals: animals,
+};
+
+export default function DetailCategory() {
   const [photoNum, setPhotoNum] = useState(0);
   const [keyPressed, setKeyPressed] = useState(false);
+  const [imageUrl, setImageUrl] = useState([]);
   const router = useRouter();
+  const { category } = router.query;
 
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+  console.log({ category });
 
-  console.log("hola");
+  useEffect(() => {
+    setImageUrl(libraryCategory[category]);
+  }, [category]);
 
-  const handleClick = (action) => {
-    if (action === "down") {
-      if (photoNum === 0) {
-        setPhotoNum(libraryNumPhotos[url]);
+  const handleClick = useCallback(
+    (action) => {
+      if (action === "down") {
+        if (photoNum === 0) {
+          setPhotoNum(libraryNumPhotos[category]);
+          return;
+        }
+        setPhotoNum(photoNum - 1);
         return;
       }
-      setPhotoNum(photoNum - 1);
-      return;
-    }
 
-    if (photoNum >= libraryNumPhotos[url]) {
-      setPhotoNum(0);
-      return;
-    }
+      if (photoNum >= libraryNumPhotos[category]) {
+        setPhotoNum(0);
+        return;
+      }
 
-    setPhotoNum(photoNum + 1);
-    return;
-  };
+      setPhotoNum(photoNum + 1);
+      return;
+    },
+    [photoNum, category]
+  );
 
   useEffect(() => {
     const handleKeyDown = (action) => {
@@ -124,7 +138,7 @@ export default function DetailCategory({ imageUrl, url }) {
           <div className="photo-detail-img">
             <LazyLoadImage
               alt={"photos of joselin portfolio"}
-              src={imageUrl[photoNum]?.src}
+              src={imageUrl?.[photoNum]?.src}
             />
           </div>
           <button onClick={() => handleClick("up")}>
@@ -147,24 +161,4 @@ export default function DetailCategory({ imageUrl, url }) {
       </div>
     </>
   );
-}
-
-const libraryCategory = {
-  persons: persons,
-  objects: objects,
-  food: food,
-  animals: animals,
-};
-
-export async function getServerSideProps({ req, res }) {
-  const split = req.url.split("/");
-  const url = split[split.length - 1];
-  const imageUrl = await libraryCategory[url];
-
-  return {
-    props: {
-      imageUrl: imageUrl,
-      url,
-    },
-  };
 }
