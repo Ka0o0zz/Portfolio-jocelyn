@@ -4,10 +4,10 @@ import hbs from "nodemailer-handlebars";
 let options = {
   viewEngine: {
     extname: ".hbs",
-    layoutsDir: "views/",
+    layoutsDir: "./views/",
     defaultLayout: "",
   },
-  viewPath: "views/",
+  viewPath: "./views/",
   extName: ".hbs",
 };
 
