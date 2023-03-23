@@ -15,11 +15,11 @@ export default function handler(req, res) {
         text: "Holaaa",
       };
 
-
       transporter.sendMail(mailOptions, function (err, data) {
         if (err) {
           console.log(err);
         } else {
+          console.log("se envio");
         }
       });
       res.status(200).json({
