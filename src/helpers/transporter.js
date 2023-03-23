@@ -35,15 +35,12 @@ import path from "path";
 // export default transporter;
 
 let transporter = nodemailer.createTransport({
-  host: "smtp-mail.outlook.com",
+  host: "smtp.live.com",
   port: 587,
   secure: false,
   auth: {
     user: "nehasada@hotmail.com",
     pass: "5205439",
-  },
-  tls: {
-    ciphers: "SSLv3",
   },
 });
 
