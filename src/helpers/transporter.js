@@ -12,15 +12,16 @@ let options = {
 };
 
 let transporter = nodemailer.createTransport({
-  host: "smtp.gmail.com",
-  port: 465,
-  secure: true,
+  host: "smtp-mail.outlook.com",
+  port: 587,
+  secure: false,
   auth: {
-    user: "davidbate5025@gmail.com",
-    pass: "snnfecsndcggsqge",
+    user: "nehasada@hotmail.com",
+    pass: "5205439",
   },
-
-  debug: true,
+  tls: {
+    ciphers: "SSLv3",
+  },
 });
 
 //Use template configuration
