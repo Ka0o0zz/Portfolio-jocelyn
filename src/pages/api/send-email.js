@@ -16,6 +16,8 @@ export default function handler(req, res) {
         context: { name, email, lastName, message, year },
       };
 
+      console.log({ email });
+
       transporter.sendMail(mailOptions, function (err, data) {
         if (err) {
           console.log(err);

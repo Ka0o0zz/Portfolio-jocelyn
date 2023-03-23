@@ -30,8 +30,8 @@ transporter.use("compile", hbs(options));
 function sendMail(options) {
   let _op = options;
   _op["from"] = {
-    name: "Oncater",
-    address: "info@Oncater.com",
+    name: "Joselin",
+    address: "nehasada@hotmail.com",
   };
   return new Promise((resolve, reject) => {
     transporter.sendMail(_op, function (err, data) {
