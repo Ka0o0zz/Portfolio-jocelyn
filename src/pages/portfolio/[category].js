@@ -38,6 +38,8 @@ export default function DetailCategory() {
     setImageUrl(libraryCategory[category]);
   }, [category]);
 
+  console.log({ imageUrl });
+
   const handleClick = useCallback(
     (action) => {
       if (action === "down") {
@@ -76,7 +78,7 @@ export default function DetailCategory() {
         handleClick("down");
       }
       if (code === "Escape") {
-        router.push("/portfolio");
+        router.push("/");
       }
 
       setTimeout(() => {
