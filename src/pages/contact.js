@@ -17,15 +17,18 @@ export default function Contact() {
 
   const onSubmit = async (data) => {
     try {
-      const call = await fetch("http://localhost:3000/api/send-email", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          ...data,
-        }),
-      });
+      const call = await fetch(
+        "https://joselin-vargas.vercel.app/api/send-email",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            ...data,
+          }),
+        }
+      );
       const response = await call.json();
       if (response.ok) {
         reset();
